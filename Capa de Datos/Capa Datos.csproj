@@ -31,8 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.12.0.0.0.Fakes">
+      <HintPath>FakesAssemblies\Newtonsoft.Json.12.0.0.0.Fakes.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,7 +53,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ADO.cs" />
+    <Compile Include="ClienteADO.cs" />
+    <Compile Include="DetallePedidoADO.cs" />
+    <Compile Include="EmpleadoADO.cs" />
+    <Compile Include="GamaProductoADO.cs" />
+    <Compile Include="OficinaADO.cs" />
     <Compile Include="PagoADO.cs" />
+    <Compile Include="PedidosADO.cs" />
+    <Compile Include="ProductosADO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Fakes Include="Fakes\Newtonsoft.Json.fakes" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
