@@ -10,6 +10,7 @@ namespace Jardineria
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.
+        /// Prueba
         /// </summary>
         [STAThread]
         static void Main()
