@@ -10,6 +10,7 @@ namespace Entidades
     {
         private int _codigoEmpleado, _codigoJefe; 
         private string _nombre, _apellido1, _apellido2, _extension, _email, _codigoOficina, _puesto, _nombreCompleto;
+        private string _pass;
 
         public Empleado()
         {
@@ -22,8 +23,9 @@ namespace Entidades
             _codigoOficina = "";
            _codigoJefe = 0;
             _puesto = "";
+            _pass = "";
         }
-        public Empleado(int codigoEmpleado, string nombre, string apellido1, string apellido2, string extension, string email, string codigoOficina, int codigoJeje, string puesto)
+        public Empleado(int codigoEmpleado, string nombre, string apellido1, string apellido2, string extension, string email, string codigoOficina, int codigoJeje, string puesto, string pass)
         {
             _codigoEmpleado = codigoEmpleado;
             _nombre = nombre;
@@ -34,6 +36,7 @@ namespace Entidades
             _codigoOficina = codigoOficina;
            _codigoJefe = codigoJeje;
             _puesto = puesto;
+            _pass = pass;
         }
         public Empleado(Empleado previousEmpleado)
         {
@@ -46,6 +49,7 @@ namespace Entidades
             _codigoOficina = previousEmpleado._codigoOficina;
            _codigoJefe = previousEmpleado._codigoJefe;
             _puesto = previousEmpleado._puesto;
+            _pass = previousEmpleado._pass;
         }
         ~Empleado()
         {
@@ -58,11 +62,12 @@ namespace Entidades
             _codigoOficina = "";
            _codigoJefe = 0;
             _puesto = "";
+            _pass = "";
         }
 
         public override string ToString()
         {
-            return _codigoEmpleado.ToString() + " # " + _nombre + " # " + _apellido1 + " # " + _apellido2 + " # " + _extension + " # " + _email + " # " + _codigoOficina + " # " + _codigoJefe.ToString() + " # " + _puesto;
+            return _codigoEmpleado.ToString() + " # " + _nombre + " # " + _apellido1 + " # " + _apellido2 + " # " + _extension + " # " + _email + " # " + _codigoOficina + " # " + _codigoJefe.ToString() + " # " + _puesto + " # " + _pass;
         }
 
         public int Codigo_Empleado
@@ -185,6 +190,19 @@ namespace Entidades
                     return _nombreCompleto = _nombre + " " + _apellido1 + " " + _apellido2;
                 }
                 
+            }
+        }
+
+        public string Pass
+        {
+            get
+            {
+                return _pass;
+            }
+            set
+            {
+                if (value.Length <= 32 && value != null)
+                    _pass = value;
             }
         }
     }

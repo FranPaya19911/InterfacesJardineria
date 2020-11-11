@@ -14,6 +14,7 @@ namespace Entidades
         private string _nombreCliente, _nombreContacto, _apellidoContacto,_telefono, _fax, _lineaDireccion1, _lineaDireccion2, _ciudad, _region, _pais, _codigoPostal;
         private int? _codigoEmpleadoRepVentas;
         private decimal? _limiteCredito;
+        private string _pass;
         public Cliente()
         {
             _codigoCliente = 0;
@@ -29,8 +30,9 @@ namespace Entidades
             _codigoPostal = "";
             _codigoEmpleadoRepVentas = 0;
             _limiteCredito = 0;
+            _pass = "";
         }
-        public Cliente(int codigoCliente, string nombreCliente, string nombreContacto, string apellidoContacto, string telefono, string fax, string lineaDireccion1, string lineaDireccion2, string ciudad, string region, string pais, string codigoPostal, int? codigoEmpleadoRepVentas, decimal? limiteCredito)
+        public Cliente(int codigoCliente, string nombreCliente, string nombreContacto, string apellidoContacto, string telefono, string fax, string lineaDireccion1, string lineaDireccion2, string ciudad, string region, string pais, string codigoPostal, int? codigoEmpleadoRepVentas, decimal? limiteCredito, string pass)
         {
             _codigoCliente = codigoCliente;
             _nombreCliente = nombreCliente;
@@ -46,6 +48,7 @@ namespace Entidades
             _codigoPostal = codigoPostal;
             _codigoEmpleadoRepVentas = codigoEmpleadoRepVentas;
             _limiteCredito = limiteCredito;
+            _pass = pass;
         }
         public Cliente(Cliente previousCliente)
         {
@@ -63,6 +66,7 @@ namespace Entidades
             _codigoPostal = previousCliente._codigoPostal;
             _codigoEmpleadoRepVentas = previousCliente._codigoEmpleadoRepVentas;
             _limiteCredito = previousCliente._limiteCredito;
+            _pass = previousCliente._pass;
         }
         ~Cliente()
         {
@@ -80,11 +84,12 @@ namespace Entidades
             _codigoPostal = null;
             _codigoEmpleadoRepVentas = null;
             _limiteCredito = null;
+            _pass = "";
         }
 
         public override string ToString()
         {
-            return _codigoCliente.ToString() + " # " + _nombreCliente + " # " + _nombreContacto + " # " + _apellidoContacto +"#" + _telefono + " # " + _fax + " # " + _lineaDireccion1 + " # " + _lineaDireccion2 + " # " + _ciudad + " # " + _region + " # " + _pais + " # " + _codigoPostal + " # " + _codigoEmpleadoRepVentas.ToString() + " # " + _limiteCredito.ToString();
+            return _codigoCliente.ToString() + " # " + _nombreCliente + " # " + _nombreContacto + " # " + _apellidoContacto +"#" + _telefono + " # " + _fax + " # " + _lineaDireccion1 + " # " + _lineaDireccion2 + " # " + _ciudad + " # " + _region + " # " + _pais + " # " + _codigoPostal + " # " + _codigoEmpleadoRepVentas.ToString() + " # " + _limiteCredito.ToString() + " # " + _pass;
         }
 
         public int Codigo_Cliente
@@ -249,6 +254,19 @@ namespace Entidades
             {
                 if (value.ToString().Length <= 15)
                     _limiteCredito = value;
+            }
+        }
+
+        public string Pass
+        {
+            get
+            {
+                return _pass;
+            }
+            set
+            {
+                if (value.Length <= 32 && value != null)
+                    _pass = value;
             }
         }
 
