@@ -8,7 +8,8 @@ namespace Entidades
 {
     public class Empleado
     {
-        private int _codigoEmpleado, _codigoJefe; 
+        private int _codigoEmpleado;
+        private int? _codigoJefe; 
         private string _nombre, _apellido1, _apellido2, _extension, _email, _codigoOficina, _puesto, _nombreCompleto;
         private string _pass;
 
@@ -152,7 +153,7 @@ namespace Entidades
                     _codigoOficina = value;
             }
         }
-        public int Codigo_Jefe
+        public int? Codigo_Jefe
         {
             get
             {
